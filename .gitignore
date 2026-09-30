@@ -1,0 +1,15 @@
+# images and model files (too big, kept on Drive/Roboflow)
+*.jpg
+*.jpeg
+*.png
+*.JPG
+*.PNG
+*.pt
+*.onnx
+runs/
+
+# secrets and clutter
+.env
+*.key
+__pycache__/
+.ipynb_checkpoints/

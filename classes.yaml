@@ -1,0 +1,49 @@
+# classes.yaml - single source of truth for all labels
+# Rule: do not rename, add, or remove anything without telling your teammate.
+# Naming: snake_case, lowercase, no spaces.
+# Version: bump when anything changes.
+
+version: 1
+
+# Model 1: crop classification (whole image)
+crops:
+  - wheat
+  - cotton
+  - tomato
+
+# Model 2: disease classification (whole image)
+# "healthy" is a class here so the model is not forced to pick a disease.
+diseases:
+  - healthy
+  - yellow_rust
+  - brown_rust
+  - powdery_mildew
+  - leaf_curl_virus
+  - alternaria_leaf_spot
+  - bacterial_blight
+  - early_blight
+  - late_blight
+
+# Model 3: pest detection (bounding boxes)
+pests:
+  - aphid
+  - armyworm
+  - termite
+  - whitefly
+  - pink_bollworm
+  - jassid
+  - fruit_borer
+  - tuta_absoluta
+
+# Lookup table: which diseases and pests are valid for each crop.
+# If a prediction is not listed here, flag it as low confidence.
+valid_conditions:
+  wheat:
+    diseases: [healthy, yellow_rust, brown_rust, powdery_mildew]
+    pests: [aphid, armyworm, termite]
+  cotton:
+    diseases: [healthy, leaf_curl_virus, alternaria_leaf_spot, bacterial_blight]
+    pests: [whitefly, pink_bollworm, jassid]
+  tomato:
+    diseases: [healthy, early_blight, late_blight, leaf_curl_virus]
+    pests: [whitefly, fruit_borer, tuta_absoluta]
